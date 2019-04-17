@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Log in with your account</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/common.css" th:href="@{/css/common.css}">
+</head>
+
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <br/>
+            <form method="POST" th:object="${userForm}" th:action="@{/registration}" class="form-signin">
+                <h2 class="form-signin-heading text-center">Create your account</h2><br/>
+                <div class="form-group">
+                    <input type="text" name="firstName" class="form-control" id="username"
+                           th:field="*{username}" placeholder="Username" required autofocus>
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('username')}"
+                           th:errors="*{username}">Error description
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" name="password" class="form-control" id="password"
+                           th:field="*{password}" placeholder="Password" required>
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('password')}"
+                           th:errors="*{password}">Error description
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" name="passwordConfirm" class="form-control" id="passwordConfirm"
+                           th:field="*{passwordConfirm}" placeholder="Password Confirm" required>
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('passwordConfirm')}"
+                           th:errors="*{passwordConfirm}">Error description
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <div class="control-label">
+                        <label class="radio-inline">
+                            <input type="radio" th:field="*{role}" value="USER" checked="checked"> User
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" th:field="*{role}" value="SUPPLIER"> Supplier
+                        </label>
+<!--                        <small class="form-text text-danger" th:if="${#fields.hasErrors('role')}"-->
+<!--                               th:errors="*{role}"></small>-->
+                    </div>
+                </div>
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                <a th:href="@{/login}" class="btn btn-link btn-block">Back</a>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>-->
+<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>-->
+</body>
+</html>
