@@ -13,18 +13,24 @@
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     </form>
     <br/>
-    <h2>Welcome, <span th:text="${currentUser.username}"></span></h2>
+    <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+<!--    <h2>Welcome, <span th:text="${currentUser.username}"></span></h2>-->
     <h3>Your role is: <span th:text="${currentUser.role}"></span></h3>
     <br/>
+
 <!--    <div sec:authorize="isAuthenticated()">-->
 <!--        This content is only shown to authenticated users.-->
 <!--    </div>-->
-<!--    <div sec:authorize="hasAuthority('ROLE_USER')">-->
+<!--    <div sec:authorize="hasRole('USER')">-->
 <!--        This content is only for users.-->
 <!--    </div>-->
-<!--    <div sec:authorize="hasAuthority('ROLE_SUPPLIER')">-->
+<!--    <div sec:authorize="hasRole('SUPPLIER')">-->
 <!--        This content is only for suppliers.-->
 <!--    </div>-->
+<!--    <div sec:authorize="hasRole('ROLE_ADMIN')">-->
+<!--        This content is only for admin.-->
+<!--    </div>-->
+
     <hr/>
     <a class="btn btn-success" onclick="document.forms['logoutForm'].submit()">Logout</a>
 </div>

@@ -30,6 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/resources/**", "/css/**", "/registration").permitAll()
+//                .antMatchers("/welcome/").access("hasRole('USER') and hasRole('SUPPLIER')")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

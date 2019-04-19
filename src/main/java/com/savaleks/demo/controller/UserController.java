@@ -64,8 +64,9 @@ public class UserController {
     public String welcome(Model model, @AuthenticationPrincipal UserDetails currentUser) {
 
         User user = userService.findByUsername(currentUser.getUsername());
-        log.info("retrieved user from database {}", currentUser.getUsername());
+        log.info("retrieved username from database {}", currentUser.getUsername());
         log.info("retrieved user role from database {}", currentUser.getAuthorities());
+
         model.addAttribute("currentUser", user);
 
         return "welcome";

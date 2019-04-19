@@ -5,7 +5,7 @@
     <title>Log in with your account</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/css/common.css" th:href="@{/css/common.css}">
+    <link rel="stylesheet" href="css/common.css" th:href="@{/css/common.css}">
 </head>
 
 <body>
@@ -43,13 +43,11 @@
                 <div class="form-group">
                     <div class="control-label">
                         <label class="radio-inline">
-                            <input type="radio" th:field="*{role}" value="USER" checked="checked"> User
+                            <input type="radio" id="optionsRadios1" th:field="*{role}" value="USER" checked> User
                         </label>
                         <label class="radio-inline">
                             <input type="radio" th:field="*{role}" value="SUPPLIER"> Supplier
                         </label>
-<!--                        <small class="form-text text-danger" th:if="${#fields.hasErrors('role')}"-->
-<!--                               th:errors="*{role}"></small>-->
                     </div>
                 </div>
 
@@ -57,11 +55,15 @@
                 <a th:href="@{/login}" class="btn btn-link btn-block">Back</a>
             </form>
 
+
         </div>
     </div>
 </div>
 
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>-->
-<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>-->
+<!-- Checked USER radio button by default -->
+<script>
+    document.getElementById("optionsRadios1").setAttribute("checked", "checked")
+</script>
+
 </body>
 </html>
